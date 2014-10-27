@@ -14,6 +14,9 @@ import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 public class Car extends Vehicle {
 
     @Override
@@ -123,8 +126,27 @@ public class Car extends Vehicle {
 
     @Override
     public void serializeToJSON(Writer writer) {
-        // TODO Auto-generated method stub
+        JSONObject obj = new JSONObject();
+        obj.put("name", "mkyong.com");
+        obj.put("age", new Integer(100));
+     
+        JSONArray list = new JSONArray();
+        list.add("msg 1");
+        list.add("msg 2");
+        list.add("msg 3");
+     
+        obj.put("messages", list);
         
+        try {
+            writer.write(obj.toJSONString());
+            writer.flush();
+            writer.close();
+     
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+     
+        System.out.print(obj);
     }
 
     @Override
