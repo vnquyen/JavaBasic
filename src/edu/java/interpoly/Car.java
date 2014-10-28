@@ -115,7 +115,7 @@ public class Car extends Vehicle {
      
             transformer.transform(source, result);
      
-            System.out.println("File saved!");
+            System.out.println("File (Car) saved!");
         } catch (ParserConfigurationException pce) {
             pce.printStackTrace();
         } catch (TransformerException tfe) {
